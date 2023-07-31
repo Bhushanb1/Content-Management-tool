@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Content Management Tool</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(45deg, #FF4081, #3F51B5, #00BCD4, #8BC34A);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite;
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background-color: rgba(255, 255, 255, 0.9);
+      overflow: hidden;
+      transition: background-image 0.5s ease-in-out;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .editor {
+      border: 1px solid #ccc;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 5px;
+    }
+
+    .toolbar {
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 8px 15px;
+      margin-right: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .content {
+      border: 1px solid #ccc;
+      padding: 10px;
+      min-height: 200px;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="container">
+    <h1>Content Management Tool</h1>
+    <div class="editor">
+      <div class="toolbar">
+        <button id="addTextBtn">Add Text</button>
+        <button id="addImageBtn">Add Image</button>
+        <button id="addVideoBtn">Add Video</button>
+        <button id="addLinkBtn">Add Link</button>
+      </div>
+      <div class="content" contenteditable="true">
+        <!-- User content will be added here -->
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const addTextBtn = document.getElementById("addTextBtn");
+      const addImageBtn = document.getElementById("addImageBtn");
+      const addVideoBtn = document.getElementById("addVideoBtn");
+      const addLinkBtn = document.getElementById("addLinkBtn");
+      const contentDiv = document.querySelector(".content");
+      const containerDiv = document.getElementById("container");
+
+      /* ... (existing JavaScript code) ... */
+
+      addLinkBtn.addEventListener("click", function () {
+        const linkUrl = prompt("Enter the link URL:");
+        if (linkUrl) {
+          const linkText = prompt("Enter the link text:");
+          if (linkText) {
+            contentDiv.innerHTML += `<a href="${linkUrl}" target="_blank">${linkText}</a>`;
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
