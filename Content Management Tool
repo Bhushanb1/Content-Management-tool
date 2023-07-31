@@ -100,7 +100,30 @@
       const contentDiv = document.querySelector(".content");
       const containerDiv = document.getElementById("container");
 
-      /* ... (existing JavaScript code) ... */
+      addTextBtn.addEventListener("click", function () {
+        const newText = prompt("Enter your text:");
+        if (newText) {
+          contentDiv.innerHTML += `<p>${newText}</p>`;
+        }
+      });
+
+      addImageBtn.addEventListener("click", function () {
+        const imageUrl = prompt("Enter the image URL:");
+        if (imageUrl) {
+          contentDiv.innerHTML += `<img src="${imageUrl}" alt="Image">`;
+        }
+      });
+
+      addVideoBtn.addEventListener("click", function () {
+        const videoUrl = prompt("Enter the video URL:");
+        if (videoUrl) {
+          contentDiv.innerHTML += `
+            <div class="video-container">
+              <iframe src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
+            </div>
+          `;
+        }
+      });
 
       addLinkBtn.addEventListener("click", function () {
         const linkUrl = prompt("Enter the link URL:");
